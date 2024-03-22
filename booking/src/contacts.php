@@ -18,10 +18,10 @@
         Street: <?php print ($street) ?>.
     </li><br>
     <li>
-        <span>&#9990;</span> Call us <?php print ($phone) ?> between our working hours: <?php print($working_hours) ?>. 
+        <span>&#9990;</span> Call us <a href="#"> <?php print ($phone) ?></a> between our working hours: <?php print($working_hours) ?>. 
     </li><br>
     <li>
-        <span>&#9997;</span> Email us your problem: <?php print ($email) ?>.
+        <span>&#9997;</span> Email us your problem: <a href="#"> <?php print ($email) ?></a>.
     </li><br>
     <li>
         Find us on map!<br>
