@@ -170,3 +170,33 @@ WEB HOSTING
       |
       v
     CONTAINER
+
+
+
+
+
+
+    ## Syntax
+    - php tag <?php code ?>
+    - short tag <? code ?>
+    - printing tag <?= code?>
+    - flow tags
+      <? control: ?>
+        ...
+      <? endcontrol ?>
+    - instr1;instr2;...
+    - print() function, echo instruction
+
+
+
+
+    ## Values
+    * String
+    * Integer
+    * Float
+    * Boolean
+
+    * Array
+    * Object
+    * Null
+    * Resource 

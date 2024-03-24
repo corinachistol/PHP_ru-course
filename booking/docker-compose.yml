@@ -6,7 +6,6 @@ services:
     restart: always
     volumes:
       - ./src/:/var/www/html
-    # volumes:
-    #   - ./src/:/var/www/html/
-    # ports:
-    #   - 8080:80
+
+    ports:
+      - 8080:80
