@@ -7,13 +7,16 @@
     
     //HW3: format the total cost seat_price ,book_cost 
     //Total cost : 2 x 100.50 = 201.00
-    $PAGE_TITLE = "Booking confirmation";   // string
+    const PAGE_TITLE = "Booking confirmation";   // string
 
-    $SEAT_PRICE = 100.50;                   // flaot
+    const SEAT_PRICE = 100.50;                   // float
 
     $book_client_vip = false;                // boolean
-    $book_adults = 2;                       //int
-    $book_cost = $book_adults * $SEAT_PRICE; // float.3333330
+    $book_adults = 2;   
+    $book_cost = $book_adults * SEAT_PRICE; // float.3333330
+    $book_cost = floatval($book_cost)
+ 
+    
 
  
 ?>
@@ -23,12 +26,38 @@
 
 <!--  TEMPLATE / VIEW -->
 
-<h1><?= $PAGE_TITLE?></h1>
+<h1><?= PAGE_TITLE?></h1>
 <p>Adults: <?= $book_adults ?></p>
-<p>Total cost: <?= $book_adults?> x <?= $SEAT_PRICE?> = <?= $book_cost ?></p>
+<p>Total cost: <?= $book_adults?> x <?= SEAT_PRICE?> = <?= $book_cost ?></p>
 
 <? if($book_client_vip == true): ?>
     <p>VIP</p>
 <? endif ?>
 
 <a href="./contacts.php">Contact Us</a>
+
+
+
+
+
+
+<!-- intro_flow_p4 -->
+<?
+
+    const TICKET_PRICE = 100.50;   // USD
+    const DISCOUNT_L   = 300.00;   //USD
+    const DISCOUNT_P   = 20;       // %
+
+    $quantity = 3;                  //tickets <---form
+
+    $total = $quantity * TICKET_PRICE;
+
+    if($total > DISCOUNT_L) {
+        $total = $total * (100-DISCOUNT_P)/100;
+    }
+    
+
+    print($total);
+    
+
+?>
