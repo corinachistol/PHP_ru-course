@@ -101,3 +101,95 @@ false                                    100-DISCOUNT_P ->R
 x end
 
 
+
+hm1: update the diagram
+x start
+|
+v
+|
+v
+rand(-50,100)
+|
+v
+$temp = rand()
+|
+v
+print($temp)
+|
+v
+print(" )
+
+|
+v
+$temp >=18 ? ----false
+|                   |  
+true                v
+|                   print("Cold")
+v                   |
+print("Warm)        |
+|                   |
++<------------------+
+|
+v
+x end
+
+
+
+x start 
+|
+v
+$ad_views = rand(0, 5)
+|
+v
+print($ad_views);
+|
+v
+$ad_views < 4 ? ----------------------------false------->
+|                                                       |               |                                                       |
+|                                                       |               |                                                       |
+v                                                       |        
+ print("NEW Features available for only $1.99")         |
+|                                                       |
++<------------------------------------------------------+
+|
+v
+x end
+
+
+
+
+
+
+
+x start
+|
+...
+|
+switch ($day) - 4
+|
++- 1 -->Print("Mo") --> break --->
+|                                |
++- 2 -->Print("Tu") --> break --->
+|                                |
++- 3 -->Print("Wd") --> break --->
+|                                |
++- 4 -->Print("Th") --> break --->
+|                                |
++- 5 -->Print("Fr") --> break --->
+|                                |
++- 6 -->Print("Su") --> break --->
+|                                |
++- 7 -->Print("Sa") --> break --->
+|                                |
++- default -->Print("Wrong...") ->
+|                                |
++--------------------------------+
+|
+v
+x end
+
+switch case e mai rapid un pic decit if/else
+
+
+
+
