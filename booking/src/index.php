@@ -9,11 +9,11 @@
         $quantity = $_GET["quantity"];
         
         //HW1: make sure the value is integer
-       if (is_int($quantity)) {
+       if (is_integer($quantity)) {
            $cost = TICKET_PRICE * $quantity;
            $total = $cost;
        } else{
-        $error= "Please specify an integer number!";
+            $error= "Please specify an integer number!";
        }
     
     } else {
@@ -40,11 +40,11 @@
 </form>
 
 <? if (isset($total)): ?>
-
     <div>
         <?=$quantity ?> tickets x <?= TICKET_PRICE?> = <?= $total?>
     </div>
 <? endif ?>
+
 
 <? if (isset($error)): ?>
     <div style="color:red">
