@@ -1,63 +1,53 @@
-<!-- intro p3 -->
-<!-- DATA BASE -->
+<!-- LOGIC -->
 
-<?
-    //HW2: make page_title and seat_price - constants
-    //      confine to the naming conventions
+<? 
+
+    const TICKET_PRICE = 100;
     
-    //HW3: format the total cost seat_price ,book_cost 
-    //Total cost : 2 x 100.50 = 201.00
-    const PAGE_TITLE = "Booking confirmation";   // string
-
-    const SEAT_PRICE = 100.50;                   // float
-
-    $book_client_vip = false;                // boolean
-    $book_adults = 2;   
-    $book_cost = $book_adults * SEAT_PRICE; // float.3333330
-    $book_cost = floatval($book_cost)
- 
+    //daca cheia quantity exista  in array GET
+    if( array_key_exists('quantity', $_GET) ){
+        $quantity = $_GET["quantity"];
+        
+        //HW1: make sure the value is integer
+       if (is_int($quantity)) {
+           $cost = TICKET_PRICE * $quantity;
+           $total = $cost;
+       } else{
+        $error= "Please specify an integer number!";
+       }
     
+    } else {
+        $error=("You didn't specify any quantity!");
+    }
 
- 
+
+    //HIBNT: php  function naming conve
+    // type_action_param
+    // type_param_action
+
 ?>
 
 
+<!-- TEMPALTE -->
+<a href="/?quantity=1">Buy 1 ticket</a><br>
+<a href="/?quantity=2">Buy 2 ticket</a><br>
+<a href="/?quantity=3">Buy 3 ticket</a><br>
+<hr>
 
+<form method="GET" action="/">
+    <input type="text" name="quantity" placeholder="Enter desired value">
+    <button>Buy</button>
+</form>
 
-<!--  TEMPLATE / VIEW -->
+<? if (isset($total)): ?>
 
-<h1><?= PAGE_TITLE?></h1>
-<p>Adults: <?= $book_adults ?></p>
-<p>Total cost: <?= $book_adults?> x <?= SEAT_PRICE?> = <?= $book_cost ?></p>
-
-<? if($book_client_vip == true): ?>
-    <p>VIP</p>
+    <div>
+        <?=$quantity ?> tickets x <?= TICKET_PRICE?> = <?= $total?>
+    </div>
 <? endif ?>
 
-<a href="./contacts.php">Contact Us</a>
-
-
-
-
-
-
-<!-- intro_flow_p4 -->
-<?
-
-    const TICKET_PRICE = 100.50;   // USD
-    const DISCOUNT_L   = 300.00;   //USD
-    const DISCOUNT_P   = 20;       // %
-
-    $quantity = 3;                  //tickets <---form
-
-    $total = $quantity * TICKET_PRICE;
-
-    if($total > DISCOUNT_L) {
-        $total = $total * (100-DISCOUNT_P)/100;
-    }
-    
-
-    print($total);
-    
-
-?>
+<? if (isset($error)): ?>
+    <div style="color:red">
+        <?=$error?>
+    </div>
+<?endif?>
