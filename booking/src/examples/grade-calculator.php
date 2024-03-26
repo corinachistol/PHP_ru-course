@@ -7,14 +7,57 @@
 Использовать if/else + print чтобы выводить сообщения об ошибках
 Вывести все 3 оценки плюс среднюю - в ряд HTML таблицы
  -->
+
+ <style>
+    form{
+        margin: 50px auto 25px 100px;
+    }
+    label,input,button{
+        display: block;
+        margin: 0.25rem;
+    }
+    table{
+        margin-left: 50px;
+        margin-top: 50px;
+    }
+    table,tr,th,td{
+        border:1px solid black;
+        border-collapse: collapse;
+        text-align: center;
+    }
+    th,td{
+        padding: .5rem;
+    }
+ </style>
 <?php
 
 
     if(isset($_GET['grade_1']) && isset($_GET['grade_2']) && isset($_GET['grade_1']) ){
-        $rate_1 = $_GET['grade_1'];
-        $rate_2 = $_GET['grade_2'];
-        $rate_3 = $_GET['grade_3'];
-        print($rate_1);
+
+        if(is_numeric( $_GET['grade_1'] ) && is_numeric($_GET['grade_2']) && is_numeric($_GET['grade_3']) ){
+
+            if(preg_match('/^([0-9](\.\d)?|10(\.0)?)$/', $_GET['grade_1']) &&
+               preg_match('/^([0-9](\.\d)?|10(\.0)?)$/', $_GET['grade_2']) &&
+               preg_match('/^([0-9](\.\d)?|10(\.0)?)$/', $_GET['grade_3'])){
+
+                $rate_1 = (float) $_GET['grade_1'];
+                $rate_2 = (float) $_GET['grade_2'];
+                $rate_3 = (float) $_GET['grade_3'];
+
+                // print($rate_1);
+                // print($rate_2);
+                // print($rate_3);
+
+                $avg_rate = ($rate_1 + $rate_2 + $rate_3) / 3 ;
+
+                // print($avg_rate);
+
+            } else{
+                print("All three grade must respect the same pattern: [0.9-10.0]");
+            }
+        } else{
+            print("Only x.x format is allowed");
+        }
     } else{
         print("All three grades are mandatory!!!");
     
@@ -24,10 +67,43 @@
 
  <form action="/examples/grade-calculator.php" method="GET">
     <label for="">Grade 1</label>
-    <input type="text" name="grade_1" >
+    <input type="text" name="grade_1" required>
     <label for="">Grade 2</label>
-    <input type="text" name="grade_2" >
+    <input type="text" name="grade_2" required>
     <label for="">Grade 3</label>
-    <input type="text" name="grade_3" >
+    <input type="text" name="grade_3" required>
     <button>Calculate grade</button>
  </form>
+
+
+ <table style="width:50%">
+ <th colspan="4">Grade Input results</th>
+    <tr>
+        <th>Grade 1</th>
+        <th>Grade 2</th>
+        <th>Grade 3</th>
+        <th>Average Grade</th>
+    </tr>
+    <!-- <tr>
+        <td><?php isset($_GET['grade_1']) ? $rate_1 : "" ?></td>
+        <td><?php isset($_GET['grade_2']) ? $rate_2 : "" ?></td>
+        <td><?php isset($_GET['grade_3']) ? $rate_3 : "" ?></td>
+        <td><?php isset($avg_rate) ? number_format($avg_rate, 2) : ""?></td>
+    </tr> -->
+    
+    <tr>
+
+        <td>
+            <?= $rate_1 ?>
+        </td>
+        <td>
+            <?= $rate_2 ?>
+        </td>
+        <td>
+            <?= $rate_3 ?>
+        </td>
+        <td>
+            <?= number_format($avg_rate, 2) ?>
+        </td>
+    </tr>
+ </table>
