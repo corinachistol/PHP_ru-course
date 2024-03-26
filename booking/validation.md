@@ -23,7 +23,7 @@ v
 x--------------------------GET Req /examples/validation.php ------->SERVER
                                                                         |
                                                                         |         
-                                                                isset($_GET['rate'])
+                                                                isset($_GET['rate']) ?
                                                                         v
                                                 Warning:... <-- $rate = $_GET['rate'];
                                                 |                        |
@@ -40,9 +40,32 @@ WINDOW <------- user clicks button
 v
 client side validation
 |
-v -required
-|
+v - required
+? - pattern  HW1*: try to allow only x.x format
 x--------------------------GET Req /examples/validation.php?rate=3 ------->SERVER
+                                                                        |
+                                                                        |         
+                                                                isset($_GET['rate']) ?
+                                                                        |
+                                                                is_numeric(($_GET['rate'])) ?
+                                                                        |
+                                                    if(preg_match('/^([0-4](\.\d)?|5(\.0)?)$/', $_GET['rate'])) ?
+                                                                        |
+                                                            $rate = (float) $_GET['rate']?
+                                                                        |
+                                                                        |
+                                                Warning:... <-- $rate = $_GET['rate'];
+                                                |                        |
+                                                +---- <form><- ---------++                        
+                                                |
+<-------------response--------------------------+
+
+
+
+
+
+
+
 
 
 
@@ -61,5 +84,7 @@ $_GET=[
 }
 
 
+casting
+<------------ (type)value
 
 

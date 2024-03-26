@@ -10,11 +10,13 @@
     const PAGE_TITLE = "Booking confirmation";   // string
 
     const SEAT_PRICE = 100.50;                   // float
+    number_format(SEAT_PRICE);
 
     $book_client_vip = false;                // boolean
     $book_adults = 2;   
-    $book_cost = $book_adults * SEAT_PRICE; // float.3333330
-    $book_cost = floatval($book_cost)
+    $book_cost = $book_adults * (float) SEAT_PRICE ; // float.3333330
+    $formatted_book_cost = number_format($book_cost, 2) ;
+    // print($book_cost);
  
     
 
@@ -28,7 +30,7 @@
 
 <h1><?= PAGE_TITLE?></h1>
 <p>Adults: <?= $book_adults ?></p>
-<p>Total cost: <?= $book_adults?> x <?= SEAT_PRICE?> = <?= $book_cost ?></p>
+<p>Total cost: <?= $book_adults?> x <?= SEAT_PRICE?> = <?= $formatted_book_cost ?></p>
 
 <? if($book_client_vip == true): ?>
     <p>VIP</p>
