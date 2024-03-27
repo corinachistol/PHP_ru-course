@@ -88,11 +88,7 @@
         <th>Average Grade</th>
     </tr>
     <tr>
-        <td>
-            <?php 
-                $grades_filled_in ?: $rate_1 ;
-            ?>
-        </td>
+        <td><?php isset($_GET['grade_2']) ? $rate_1 : ""?></td>
         <td><?php isset($_GET['grade_2']) ? $rate_2 : "" ?></td>
         <td><?php isset($_GET['grade_3']) ? $rate_3 : "" ?></td>
         <td><?php isset($avg_rate) ? number_format($avg_rate, 2) : ""?></td>
