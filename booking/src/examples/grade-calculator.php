@@ -31,6 +31,7 @@
  </style>
 <?php
 
+    $grades_filled_in = false;
 
     if(isset($_GET['grade_1']) && isset($_GET['grade_2']) && isset($_GET['grade_1']) ){
 
@@ -43,6 +44,8 @@
                 $rate_1 = (float) $_GET['grade_1'];
                 $rate_2 = (float) $_GET['grade_2'];
                 $rate_3 = (float) $_GET['grade_3'];
+
+                $grades_filled_in = true;
 
                 // print($rate_1);
                 // print($rate_2);
@@ -84,12 +87,16 @@
         <th>Grade 3</th>
         <th>Average Grade</th>
     </tr>
-    <!-- <tr>
-        <td><?php isset($_GET['grade_1']) ? $rate_1 : "" ?></td>
+    <tr>
+        <td>
+            <?php 
+                $grades_filled_in ?: $rate_1 ;
+            ?>
+        </td>
         <td><?php isset($_GET['grade_2']) ? $rate_2 : "" ?></td>
         <td><?php isset($_GET['grade_3']) ? $rate_3 : "" ?></td>
         <td><?php isset($avg_rate) ? number_format($avg_rate, 2) : ""?></td>
-    </tr> -->
+    </tr>
     
     <tr>
 
