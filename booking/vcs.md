@@ -7,7 +7,7 @@
         HeRe
         |
         v
-        initial commit
-x------x---------------------------------> main / master   
-        \
-         +---------> examples
+        initial commit  removed
+x------x------------------x---------------> main / master   
+        \                cleanup   
+         +----------------x----> examples
