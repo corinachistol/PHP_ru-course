@@ -8,8 +8,8 @@
     }
 
     // daca adresa introdusa page=abc, atunci pagina 404 incarca
-    if (!file_exists("{$page}.php}")) {
-       $page='404';
+    if (!file_exists("{$page}.php")) {
+        $page='404';
         http_response_code(404);
-    }
+    };
 ?>
