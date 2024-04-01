@@ -10,5 +10,9 @@
             href="/?page=contacts"
              <? if ($page == 'contacts'){?>class="active"<?}?>
         >contacts</a>
+        <a 
+            href="/?page=tours"
+             <? if ($page == 'tours'){?>class="active"<?}?>
+        >[Tour Catalog]</a>
     </nav>
 </header>
