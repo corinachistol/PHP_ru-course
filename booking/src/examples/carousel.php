@@ -29,7 +29,7 @@
     $previous_page = $page - 1;
     $next_page = $page + 1;
 
-    $active_image = $image[0]
+    $active_image = $image[0];
 
 ?>
 
@@ -76,7 +76,7 @@
     </a>
 
     <a href="?page=1">
-        <img src="<?=$image[0]?>"  width="300">
+        <img src="<?=$active_image?>"  width="300">
     </a>
 
     <a href="?page=<?=$next_page ?>">
