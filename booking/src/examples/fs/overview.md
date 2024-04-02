@@ -89,3 +89,8 @@ cheatsheat fs linux
 + owner and others
 + write , read, execute (binary)
 + change mode
+
+read about 
+owner
+change mode 
+group of users
