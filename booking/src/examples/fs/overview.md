@@ -47,6 +47,12 @@ $file = fopen("./client.txt", "w");
 
 
 
+- JSON
+- XML
+- YML
+
+
+
 
 
 
@@ -94,3 +100,28 @@ read about
 owner
 change mode 
 group of users
+
+
+
+
+
+
+
+
+
+    req       /webserver
++------------+---+
+|                |
+|                |
+|    php mod     | <-------- script.php
+|                |
+|                +-----extensions 
+|                |
++----------------+
+        |
+        v
+        res
+
+HW4: * try to do the same for xml, and yml
+Hw5:* try to use the same 2 files writer.php and reader.php
+but differentiate them using either commit message or tagging
