@@ -27,10 +27,13 @@
              
         }
           var_dump($client);
+          
 
+      
         //HW2: convert age to integer
         // Hw3: get active (true,false) - boolean
 
+      
 
         
 
