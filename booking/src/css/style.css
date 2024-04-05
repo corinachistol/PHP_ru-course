@@ -11,3 +11,11 @@ a{
 nav a.active{
     text-decoration: underline;
 }
+
+.c-item{
+    height: 45vh;
+}
+
+.c-img{
+    height: 100%;
+}

@@ -8,13 +8,13 @@
    <section class="container shadow">
         <div class="row">
             <? for ($i = 0; $i < count($tours); $i++) { ?>
-                <div class="col-md-6">
+                <div class="col-md-6 col-xl-4">
 
                     <div class="card my-2 mx-2" >
 
                         <div id="carouselExampleIndicators" class="carousel slide">
                             <div class="carousel-indicators">
-                                
+
                                  <? foreach ($tours[$i]['image'] as $img) { ?>
                                         
                                         <?php $isActive = true; ?>
@@ -34,16 +34,16 @@
 
                             <div class="carousel-inner">
 
-                                <!-- <?php $isActive = true; ?> -->
+                                <?php $isActive = true; ?>
                                 <? foreach ($tours[$i]['image'] as $img) { ?>
-                                    <div class="carousel-item <?= $isActive ? 'active' : '' ?>">
+                                    <div class="c-item carousel-item <?= $isActive ? 'active' : '' ?>">
                                         <img 
                                             src="<?= $img ?>" 
-                                            class="d-block w-100" 
+                                            class="d-block w-100 c-img" 
                                             alt="<?= $tours[$i]['name'] ?>"
                                         >
                                     </div>
-                                    <!-- <?php $isActive = false; ?> -->
+                                    <?php $isActive = false; ?>
                                   
                                 <? } ?>
                             </div>
