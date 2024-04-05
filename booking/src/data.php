@@ -1,6 +1,7 @@
 <?
     $tours = [
         [
+            'id'                => 1,
             'name'              => 'Istambul Trip',
             'description'       => '4 splendid days spent in the only one capital located on two continents. ',
             'image'             => [
@@ -21,6 +22,7 @@
             ]
         ],
         [
+            'id'                => 2,
             'name'              => 'Budapesta + Viena (Optional)',
             'description'       => 'Austria and Hungary are the 2 most attractive turistic destinations.',
             'image'             => [
@@ -41,6 +43,7 @@
             ]
         ],
         [
+            'id'                =>  3,
             'name'              => 'Shopping Mall Iasi - Romania',
             'description'       => 'Spend a day in Iasi and go for a shopping with us.',
             'image'             => [
@@ -61,6 +64,7 @@
             ]
         ],
         [
+            'id'                => 4,
             'name'              => 'Europe Trip - 5 countries',
             'description'       => 'Chisinau, Austria, Slovakia, Hungary, Germany, Czech Republic',
             'image'             => [
@@ -81,6 +85,7 @@
             ]
         ],
         [
+            'id'                => 5,
             'name'              => 'Egipt Trip',
             'description'       => 'Visit the Desetts & Oases with us.',
             'image'             => [
@@ -99,6 +104,7 @@
             ]
         ],
         [
+            'id'                =>  6,
             'name'              => 'Hot Offer Dubai',
             'description'       => 'Jump from Towers in Dubai',
             'image'             => [

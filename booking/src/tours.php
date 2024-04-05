@@ -59,10 +59,20 @@
                         </div>
 
 
-                        <div class="card-body">
+                        <div class="card-body d-block">
                             <h5 class="card-title"><?= $tours[$i]['name'] ?></h5>
+                            <div>
+                                <div class="badge rounded-pill text-bg-danger" style="<?=($tours[$i]['discount']['amount'] == 0 ) ? 'display:none' : 'visibility:visible' ?>">
+                                    Discount: <?= $tours[$i]['discount']['amount']?><?= $tours[$i]['discount']['percentage'] ?> 
+                                </div>
+                                <div type="button" class="btn btn-primary">
+                                    <?= $tours[$i]['price']['amount'] ?> <?= $tours[$i]['price']['currency'] ?>
+                                </div>
+                            </div>
+                                                    
+                            
                             <p class="card-text"><?= $tours[$i]['description']?></p>
-                            <a href="#" class="btn btn-primary">See details</a>
+                            <a href="#" class="btn btn-outline-primary justify-content-center  ">See details</a>
                         </div>
 
                     </div>
