@@ -72,7 +72,9 @@
                                                     
                             
                             <p class="card-text"><?= $tours[$i]['description']?></p>
-                            <a href="#" class="btn btn-outline-primary justify-content-center  ">See details</a>
+                            <a href="?page=tour-detail&tour-id=<?= $tours[$i]['id']?>"
+                                target="_blank" 
+                                class="btn btn-outline-primary justify-content-center  ">See details</a>
                         </div>
 
                     </div>

@@ -12,7 +12,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
                     <a 
-                        href="?page=support"  
+                        href="?page=support" 
                         class="nav-link <?= ($page == 'support') ? 'active' : '' ?> ">Support</a>
                 </li>
 
@@ -23,7 +23,8 @@
                 </li>
 
                 <li class="nav-item">
-                    <a href="?page=tours" class="nav-link <?= ($page == 'tours') ? 'active' : '' ?>">Tour Catalog</a>
+                    <a href="?page=tours" 
+                    class="nav-link <?= ($page == 'tours') ? 'active' : '' ?>">Tour Catalog</a>
                 </li>
             </ul>
             <!-- search form -->
