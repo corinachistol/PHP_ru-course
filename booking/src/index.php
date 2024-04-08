@@ -1,4 +1,5 @@
 <? include 'page-middleware.php' ?>
+<? include 'lib.php' ?>
 <!-- $page -->
 
 <!DOCTYPE html>
