@@ -13,29 +13,31 @@
 
   $tours = array_values($tours);
 
-  $tours = array_filter($tours, function ($tour) {
-        if(isset($_POST['min_price'])) {
-            // print($_POST['min_price']);
-            return $tour['price']['amount'] >= $_POST['min_price'];
-        }else if (isset($_POST['max_price'])) {
-            return $tour['price']['amount'] <= $_POST['max_price'] ;
-        }
-        // else if(isset($_POST['min_price']) && isset($_POST['max_price']) ) {
-        //     return  $_POST['min_price'] >= $tour['price']['amount'] <= $_POST['max_price'];
-        // }
+  
+
+  if(isset($_POST['min_price']) ){
+    echo("first");
+    print ($_POST['min_price']);
+    $tours = array_filter($tours, function ($tour) {
+        return $tour['price']['amount'] >= (int)$_POST['min_price'];
         
+    });
+  }
+  if(isset($_POST['max_price']) ){
+    echo ("second");
+    print($_POST['max_price']);
+    $tours = array_filter($tours, function ($tour) {
+        return $tour['price']['amount'] <= $_POST['max_price'];
 
-  });
-
-//   if(isset($_POST['min_price'])){
+    });
+  }
+//   if( isset($_POST['min_price']) && isset($_POST['max_price']) ){
+//     echo ("third");
+//     print ($_POST['min_price']);
+//     print($_POST['max_price']);
 //     $tours = array_filter($tours, function ($tour) {
-//         return $tour['price']['amount'] >= $_POST['min_price'];
-        
-//     });
-//   }else if(isset($_POST['max_price'])){
-//     $tours = array_filter($tours, function ($tour) {
-//         return $tour['price']['amount'] <= $_POST['max_price'];
-
+//         return $tour['price']['amount'] >= $_POST['min_price'] &&
+//              $tour['price']['amount'] <= $_POST['max_price'];
 //     });
 //   }
     $tours = array_values($tours);
@@ -58,8 +60,18 @@
     </form>
 
     <form action="/?page=tours" method="POST">
-        <input type="text" placeholder="enter min price" name="min_price" value="<?=$_POST['min_price'] ?? ""?>">
-        <input type="text" placeholder="enter max price" name="max_price" value="<?=$_POST['max_price'] ?? ""?>">
+        <input 
+            type="text" 
+            placeholder="enter min price" 
+            name="min_price"
+            size="6" 
+            value="<?=$_POST['min_price'] ?? ""?>">
+        <input 
+            type="text" 
+            placeholder="enter max price" 
+            name="max_price"
+            size="6" 
+            value="<?=$_POST['max_price'] ?? ""?>">
         <button>Search</button>
     </form>
 
