@@ -20,7 +20,17 @@ nav a.active{
     height: 100%;
 }
 
-.c-price{
+button.c-price{
     margin-left: 250px;
+}
+button.c-sort{
+    color:black;
+    background-color: transparent;
+    font-weight: 800;
+    border: none;
+    
+}
+h1{
+    color: red;
 }
 

@@ -1,58 +1,58 @@
 <!-- LOGIC -->
 <? 
   $tours = load('tours');
+
   if (isset($_POST['search'])) {
     $tours = array_filter($tours, function ($tour) {
         return 
-            similar_text($tour['name'], $_POST['search']) >= 3
-            ||
+            !(stripos($tour['name'], $_POST['search']) === false)  ||
             $_POST['search'] == '';
     });
-    
   }
 
   $tours = array_values($tours);
 
-//   $min_price;
-//   $max_price;
 
-// if (isset($_POST['min_price']) && $_POST['min_price'] !=0) {
-//     $min_price = $_POST['min_price'];
-//     print ($min_price);
-// }
-// if (isset($_POST['max_price']) && $_POST['max_price'] !=0) {
-//     $max_price = $_POST['max_price'];
-//     print ($max_price);
-// }
-
-
-  if(isset($_POST['min_price']) ){
+  if(isset($_POST['min_price']) && $_POST['max_price'] == false ){
+    var_dump($_POST['max_price']);
     echo("first");
-    print ($_POST['min_price']);
     $tours = array_filter($tours, function ($tour) {
         return $tour['price']['amount'] >= (int)$_POST['min_price'];
         
     });
   }
-  if(isset($_POST['max_price']) ){
-    echo ("second");
-    print($_POST['max_price']);
-    $tours = array_filter($tours, function ($tour) {
-        return $tour['price']['amount'] <= $_POST['max_price'];
+//   if(isset($_POST['max_price'])  && $_POST['min_price'] === " " ){
+//     var_dump($_POST['min_price']);
+//     echo ("second");
+//     print($_POST['max_price']);
+//     $tours = array_filter($tours, function ($tour) {
+//         return $tour['price']['amount'] <= (int)$_POST['max_price'];
 
-    });
-  }
-  if( isset($_POST['min_price']) && isset($_POST['max_price']) ){
-    echo ("third");
-    print ($_POST['min_price']);
-    print($_POST['max_price']);
-    $tours = array_filter($tours, function ($tour) {
-        return $tour['price']['amount'] >= $_POST['min_price'] &&
-             $tour['price']['amount'] <= $_POST['max_price'];
-    });
-  }
+//     });
+//   }
+//se paote de facut cu un if ,,,
+//   if( isset($_POST['min_price']) && isset($_POST['max_price']) ){
+//     echo ("third");
+//     print ($_POST['min_price']);
+//     print($_POST['max_price']);
+//     $tours = array_filter($tours, function ($tour) {
+//         return $tour['price']['amount'] >= (int)$_POST['min_price'] &&
+//              $tour['price']['amount'] <= (int)$_POST['max_price'];
+//     });
+//   }
+
     $tours = array_values($tours);
 
+    if(isset($_POST['sort_desc'])) {
+        usort($tours, function ($tour_a, $tour_b) {
+            return $tour_b['price']['amount'] - $tour_a['price']['amount'];
+        });
+    }
+    if(isset($_POST['sort_asc'])) {
+        usort($tours, function ($tour_a, $tour_b) {
+            return $tour_a['price']['amount'] - $tour_b['price']['amount'];
+        });
+    }
 
 ?>
 
@@ -61,46 +61,63 @@
     <h1 class="text-center py-3">Tour Catalog</h1>
     
     <!-- FILTERS -->
-    <form action="/?page=tours" method="POST">
-        <input 
-            type="text" 
-            name="search" 
-            placeholder="enker keywords..."
-            value="<?=$_POST['search'] ?? "" ?>">
-        <button>SEARCH</button>
-    </form>
-
-    <form action="/?page=tours" method="POST">
-        <input 
-            type="text" 
-            placeholder="enter min price" 
-            name="min_price"
-            size="6" 
-            value="<?=$_POST['min_price'] ?? ""?>">
-        <input 
-            type="text" 
-            placeholder="enter max price" 
-            name="max_price"
-            size="6" 
-            value="<?=$_POST['max_price'] ?? ""?>">
-        <button>Search</button>
-    </form>
-
-<!-- HW1: add another form
-        input: min price
-        input max price
-        '' '1000'
-        500 ''
-
-
-
-
--->
-
+    <div class="container-fluid shadow mx-2">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <form action="/?page=tours" method="POST">
+                            <div class="row">
+                                <div class="col-4">
+                                    <label>Tour name</label>
+                                     <input
+                                        class="form-control mb-2" 
+                                        type="text" 
+                                        name="search" 
+                                        placeholder="enker keywords..."
+                                        value="<?= $_POST['search'] ?? "" ?>"
+                                    >
+                                </div>
+                                <div class="col-4">
+                                    <label>Minimun price</label>
+                                     <input
+                                        class="form-control mb-2" 
+                                        type="text" 
+                                        placeholder="enter min price" 
+                                        name="min_price"
+                                        size="6" 
+                                        value="<?=$_POST['min_price'] ?? ""?>"
+                                    >
+                                </div>
+                                <div class="col-4">
+                                    <label>Maximum price</label>
+                                     <input
+                                        class="form-control mb-2" 
+                                        type="text" 
+                                        placeholder="enter max price" 
+                                        name="max_price"
+                                        size="6" 
+                                        value="<?= $_POST['max_price'] ?? "" ?>"
+                                    >
+                                </div>
+                                <div class="d-flex justify-content-center ">
+                                    <button name="sort_desc" class="px-4 mx-2 c-sort">v</button>
+                                    <button name="sort_asc" class="px-4 mx-2 c-sort">^</button>
+                                    <button type="submit" class="btn btn-primary px-4 mx-2">SEARCH</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
     <!-- FILTERS -->
 
 
-   <section class="container shadow">
+
+   <section class="container-fluid shadow">
         <div class="row">
             <? for ($i = 0; $i < count($tours); $i++) { ?>
                 <div class="col-md-6 col-xl-4">
