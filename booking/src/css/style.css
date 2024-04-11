@@ -1,10 +1,10 @@
 body{
-    background-color: #222;
-    color: white;
+    /* background-color: #222; */
+    color: black;
     font-family: sans-serif;
 }
 a{
-    color: white;
+    /* color: white; */
     text-decoration: none;
 }
 
@@ -26,11 +26,20 @@ button.c-price{
 button.c-sort{
     color:black;
     background-color: transparent;
-    font-weight: 800;
     border: none;
-    
-}
-h1{
-    color: red;
 }
 
+
+.c-card{
+    border-color: transparent;
+}
+
+@media only screen and (min-width: 960px) {
+    .c-container {
+        display: flex;
+        gap: 1rem;
+    }
+    .c-buttons:last-child{
+       flex-direction: column;
+    }
+}

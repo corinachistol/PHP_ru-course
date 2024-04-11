@@ -17,7 +17,7 @@
         },
         "price": {
             "amount": 99,
-            "currency": "EURO"
+            "currency": "USD"
         }
     },
     {
@@ -38,7 +38,7 @@
         },
         "price": {
             "amount": 109,
-            "currency": "EURO"
+            "currency": "USD"
         }
     },
     {
