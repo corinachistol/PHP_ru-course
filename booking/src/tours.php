@@ -89,7 +89,7 @@
                                 <div class="d-flex justify-content-center c-buttons ">
                                     <button name="sort_desc" class="btn btn-primary mx-2 c-sort">v</button>
                                     <button name="sort_asc" class="btn btn-primary mx-2 c-sort">^</button>
-                                    <button type="submit" class="btn btn-primary px-4 mx-2 ">SEARCH</button>
+                                    <button type="submit" class="btn btn-outline-primary px-4 mx-2 ">SEARCH</button>
                                 </div>
                             </div>
                         </form>

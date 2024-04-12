@@ -11,6 +11,8 @@
         ],
         "duration": "3 nights",
         "type_of_transport": "By Bus",
+        "start_position": "Chisinau",
+        "time_start": "12:00",
         "discount": {
             "amount": 10,
             "percentage": "%"
@@ -32,6 +34,8 @@
         ],
         "duration": "4 nights",
         "type_of_transport": "By Bus",
+        "start_position": "Bucuresti",
+        "time_start": "12:00",
         "discount": {
             "amount": 33,
             "percentage": "%"
@@ -53,6 +57,8 @@
         ],
         "duration": "0 nights",
         "type_of_transport": "By bus",
+        "start_position": "Chisinau",
+        "time_start": "12:00",
         "discount": {
             "amount": 0,
             "percentage": "%"
@@ -74,6 +80,8 @@
         ],
         "duration": "10 days",
         "type_of_transport": "By bus",
+        "start_position": "Iasi",
+        "time_start": "12:00",
         "discount": {
             "amount": 15,
             "percentage": "%"
@@ -93,6 +101,8 @@
         ],
         "duration": "7 nights",
         "type_of_transport": "By plane",
+        "start_position": "Chisinau",
+        "time_start": "12:00",
         "discount": {
             "amount": 0,
             "percentage": "%"
@@ -112,6 +122,8 @@
         ],
         "duration": "7 nights",
         "type_of_transport": "By plane",
+        "start_position": "Chisinau",
+        "time_start": "12:00",
         "discount": {
             "amount": 10,
             "percentage": "%"

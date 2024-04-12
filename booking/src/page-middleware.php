@@ -7,6 +7,10 @@
     if( isset($_GET['page'])) {
         $page = $_GET['page'];
     } 
+    if( isset($_GET['page']) && array_key_exists('tour-id', $_GET) ) {
+        $page = $_GET['page'];
+        $tour_id = (int) $_GET['tour-id'];
+    } 
 
     // daca adresa introdusa page=abc, atunci pagina 404 incarca
     if (!file_exists("{$page}.php")) {
@@ -14,10 +18,5 @@
         http_response_code(404);
     };
 
-    /*
-    || array_key_exists('tour-id', $_GET)
-     $tour_id = (int)$_GET['tour-id'];
-    
-    
-    */
+  
 ?>

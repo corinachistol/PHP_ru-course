@@ -2,10 +2,15 @@ body{
     /* background-color: #222; */
     color: black;
     font-family: sans-serif;
+    position: relative;
+    padding-top: 56px;;
 }
 a{
     /* color: white; */
     text-decoration: none;
+}
+.c-navbar{
+    margin-right: auto;
 }
 
 nav a.active{
@@ -33,6 +38,39 @@ button.c-sort{
 .c-card{
     border-color: transparent;
 }
+
+.c-footer{
+    position: absolute;
+    bottom:10px;
+}
+
+.c-full_article{
+    /* background-color: gray; */
+    max-width: 1280px;
+    padding: 10px;
+    margin: 50px auto 25px;
+    font-size: 15px;
+    line-height: 1.4;
+    
+}
+
+.subtitle-wrap{
+    font-size: 16px;
+    line-height: 22px;
+    color: #121420;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.subtitle-location{
+    padding-right: 40px;
+}
+
+
+
+
+
+
 
 @media only screen and (min-width: 960px) {
     .c-container {
