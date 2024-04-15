@@ -33,15 +33,18 @@
         //HW2: convert age to integer
         // Hw3: get active (true,false) - boolean
 
-      
+        $xml = new SimpleXMLElement('<client/>');
 
-        
+        foreach( $client as $key => $value ) {
+            $xml->addChild($key, $value);
+        }
+
 
 
         //save to file
-        $file = fopen("./data/client.json", "w");
+        $file = fopen("./data/client.xml", "w");
         //scrie in file numele clientului
-        fwrite($file, json_encode($client));
+        fwrite($file, $xml ->asXML());
         //inchide file, foarte important!
         fclose($file);
    
