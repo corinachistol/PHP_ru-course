@@ -28,7 +28,9 @@
             <div class="detail-price"></div>
         </div>
 
+        <a href="/?page=book&id=<?= $filtered_tour[0]["id"] ?>">Book</a>
     </article>
+
     
     
 </section>

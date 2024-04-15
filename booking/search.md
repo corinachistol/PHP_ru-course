@@ -39,5 +39,24 @@ booking_p4  07/04/2024
                                                                                    SEARCH
 
 
+
+
+
+    form
+      |
+      +-----min_price
+      +-----max_price
+             |
+             POST
+             |
+             v
+             ------------
+
+             array_filter(
+                ... function () {
+                    
+                }
+             )
+
                                                                                    
                                                                                             

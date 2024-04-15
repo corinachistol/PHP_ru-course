@@ -15,25 +15,18 @@
 
   if(isset($_POST['min_price']) && $_POST['min_price'] != "" && $_POST['max_price'] == "" ){
     var_dump($_POST['max_price']);
-    // echo("first");
     $tours = array_filter($tours, function ($tour) {
         return $tour['price']['amount'] >= (int)$_POST['min_price'];
         
     });
   }
   if(isset($_POST['max_price']) && $_POST['max_price'] != ""  && $_POST['min_price'] == "" ){
-    // var_dump($_POST['min_price']);
-    // echo ("second");
-    // print($_POST['max_price']);
     $tours = array_filter($tours, function ($tour) {
         return $tour['price']['amount'] <= (int)$_POST['max_price'];
 
     });
   }
   if( isset($_POST['min_price']) && $_POST['min_price'] != "" && isset($_POST['max_price']) && $_POST['max_price'] != "" ){
-    // echo ("third");
-    // print ($_POST['min_price']);
-    // print($_POST['max_price']);
     $tours = array_filter($tours, function ($tour) {
         return $tour['price']['amount'] >= (int)$_POST['min_price'] &&
              $tour['price']['amount'] <= (int)$_POST['max_price'];
@@ -88,6 +81,7 @@
                                 </div>
                                 <div class="d-flex justify-content-center c-buttons ">
                                     <button name="sort_desc" class="btn btn-primary mx-2 c-sort">v</button>
+                                    <!-- <input type="radio" name="sort_desc" formaction="/?page=tours"class="c-sort">v -->
                                     <button name="sort_asc" class="btn btn-primary mx-2 c-sort">^</button>
                                     <button type="submit" class="btn btn-outline-primary px-4 mx-2 ">SEARCH</button>
                                 </div>

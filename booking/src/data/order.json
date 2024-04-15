@@ -1,0 +1,9 @@
+{
+    "client": {
+        "full_name": "Jane Doe",
+        "email": "jd@ecample.com",
+        "phone_number": "125464"
+    },
+    "quantity": 1,
+    "tour_id": 1
+}
