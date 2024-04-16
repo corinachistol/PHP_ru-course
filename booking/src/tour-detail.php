@@ -7,10 +7,27 @@
     $filtered_tour = array_filter($tours, fn($tour) => $tour['id'] === $tour_id) ;
     
     $filtered_tour = array_values($filtered_tour);
-    // var_dump($filtered_tour[0]['image']);
+    var_dump($filtered_tour[0]['image']);
 
-    $selectedImage = 1;
- 
+    if (array_key_exists('image', $_GET)) {
+        $image = $_GET['image'];
+        print ($image);
+        if ($image >= 7) {
+            $image = 1;
+        }
+        if ($image < 1) {
+            $image = 7;
+
+        }
+
+    } else {
+        $image = 1;
+    }
+
+    $previous_image = $image - 1;
+    $next_image = $image + 1;
+
+    $active_image = $filtered_tour[0]['image'][0];
 ?>
 
 
@@ -32,16 +49,26 @@
             <div class="row">
                 <div class="col col-md-8">
                     <div id="gallery">
-                        <button onclick="previous()">◀</button>
-                        <img src="<?= $filtered_tour[0]["image"][0]?>" id="mainImage">
-                        <button onclick="next()" class="next">▶</button>
+                        <a 
+                            href="?page=tour-detail&tour-id=<?= $filtered_tour[0]['id']?>&image=<?=$previous_image?>" 
+                            class="btn">
+                                ◀
+                        </a>
+                        <a href="?page=tour-details&tour-id=<?= $filtered_tour[0]['id'] ?>&image=1">
+                           <img src="<?= $active_image?>" id="mainImage">
+                        </a>
+                        <a href="?page=tour-detail&tour-id=<?= $filtered_tour[0]['id'] ?>&image=<?= $next_image ?>" clas="next">
+                            ▶
+                        </a>
                         <hr/>
                         <?for($x=0; $x<=count($filtered_tour[0]['image']); $x++) {?>
-                            <img 
-                                id="thumb<?=$x+1?>" 
-                                onclick="selectImage(<?= $x +1?>)" 
-                                src="<?= $filtered_tour[0]['image'][$x]?>" 
-                                class="thumb <?= $selectedImage == $x ? "active" : "" ?>">
+                            <a href="?page=tour-details&tour-id=<?= $filtered_tour[0]['id'] ?>&image=<?=$x+1?>">
+                                <img 
+                                    id="thumb<?=$x+1?>" 
+                                    src="<?= $filtered_tour[0]['image'][$x]?>" 
+                                    class="thumb <?= $image == ($x+1) ? "active" : "" ?>">
+
+                            </a>
                         <?}?> 
                         <!-- <img id="thumb1" onclick="selectImage(1)" src="images/1.jpg" class="thumb active">
                         <img id="thumb2" onclick="selectImage(2)" src="images/2.jpg" class="thumb">
@@ -85,54 +112,3 @@
 
 
 
-<script>
-
-    let  selectedImage = 1
-
-    function selectImage(n){
-        //change main image
-        mainImage.src=`images/${n}.jpg`
-
-        for (let i = 1; i<=7; i++){
-            if (i == n){
-                //set active class to thumb
-                window[`thumb${i}`].className ='thumb active' 
-            }else{
-                window[`thumb${i}`].className ='thumb' 
-            }
-        }
-
-        
-    }
-
-    function next(){
-        
-        if(selectedImage <= 7){
-            selectedImage++;
-            if(selectedImage > 7){
-                    selectedImage = 1
-                } else{
-                    
-                } 
-            
-        selectImage(selectedImage);     
-            
-        }
-            
-    }
-
-        function previous(){
-            if(selectedImage <=7){
-            selectedImage--;
-            if(selectedImage < 1){
-                selectedImage = 7
-            }else{
-
-            }
-            selectImage(selectedImage); 
-    }
-
-
-    }
-    
-// </script>
