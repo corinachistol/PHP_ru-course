@@ -7,7 +7,7 @@
     $filtered_tour = array_filter($tours, fn($tour) => $tour['id'] === $tour_id) ;
     
     $filtered_tour = array_values($filtered_tour);
-    var_dump($filtered_tour[0]['image']);
+    // var_dump($filtered_tour[0]['image']);
 
     if (array_key_exists('image', $_GET)) {
         $image = $_GET['image'];
@@ -70,11 +70,7 @@
 
                             </a>
                         <?}?> 
-                        <!-- <img id="thumb1" onclick="selectImage(1)" src="images/1.jpg" class="thumb active">
-                        <img id="thumb2" onclick="selectImage(2)" src="images/2.jpg" class="thumb">
-                        <img id="thumb3" onclick="selectImage(3)" src="images/3.jpg" class="thumb">
-                        <img id="thumb4" onclick="selectImage(4)" src="images/4.jpg" class="thumb">
-                        <img id="thumb5" onclick="selectImage(5)" src="images/5.jpg" class="thumb"> -->
+                       
         
                     </div>
                 </div>
