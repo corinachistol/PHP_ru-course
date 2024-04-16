@@ -107,7 +107,7 @@
                     
                                         <? foreach ($tours[$i]['image'] as $img) { ?>
                     
-                                            <?php $isActive = true; ?>
+                                            <!-- <?php $isActive = true; ?> -->
                                             <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="<?= $img[$i] ?>"
                                                 class="<?= $isActive ? 'active' : '' ?>" aria-current="<?= $isActive ? 'true' : '' ?>"
                                                 aria-label="Slide <?= $img[$i] ?>"></button>
@@ -120,12 +120,12 @@
                     
                                     <div class="carousel-inner">
                     
-                                        <?php $isActive = true; ?>
+                                        <!-- <?php $isActive = true; ?> -->
                                         <? foreach ($tours[$i]['image'] as $img) { ?>
                                             <div class="c-item carousel-item <?= $isActive ? 'active' : '' ?>">
                                                 <img src="<?= $img ?>" class="d-block w-100 c-img" alt="<?= $tours[$i]['name'] ?>">
                                             </div>
-                                            <?php $isActive = false; ?>
+                                            <!-- <?php $isActive = false; ?> -->
                     
                                         <? } ?>
                                     </div>

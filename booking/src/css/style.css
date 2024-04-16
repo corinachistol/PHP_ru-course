@@ -68,6 +68,45 @@ button.c-sort{
 
 
 
+#gallery {
+    width: 400px;
+    /* border: 1px solid black; */
+    margin: 50px auto;
+    text-align: center;
+}
+
+#gallery button {
+    font-size: 30px;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+    color: black;
+}
+#gallery button:first-child{
+    transform: translateX(-220px) translateY(160px);
+}
+#gallery .next{
+    transform: translateX(220px) translateY(-160px);
+}
+
+#mainImage{
+    width: 100%;
+}
+
+
+#gallery .thumb {
+    width: 50px;
+    height: 50px;
+    border: 1px solid transparent;
+    cursor: pointer;
+}
+
+#gallery .thumb.active {
+    border-color: black;
+}
+
+
 
 
 
@@ -79,5 +118,26 @@ button.c-sort{
     }
     .c-buttons:last-child{
        flex-direction: column;
+    }
+    
+}
+
+@media only screen and (min-width: 768px){
+    #gallery{
+        width:600px;
+    }
+
+
+    #gallery .thumb {
+        width: 80px;
+        height: 80px;
+
+    }
+    #gallery button:first-child {
+        transform: translateX(-330px) translateY(200px);
+    }
+
+    #gallery .next {
+        transform: translateX(330px) translateY(-220px);
     }
 }

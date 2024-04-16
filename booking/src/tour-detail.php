@@ -1,36 +1,138 @@
 <!-- LOGIC -->
 <? 
+   
+
     $tours = load('tours');
     $tours = array_values($tours);
-    // var_dump(($tours));
     $filtered_tour = array_filter($tours, fn($tour) => $tour['id'] === $tour_id) ;
-
+    
     $filtered_tour = array_values($filtered_tour);
+    // var_dump($filtered_tour[0]['image']);
+
+    $selectedImage = 1;
  
 ?>
 
 
 <section>
-    <article class="c-full_article">
-        <h1><?=$filtered_tour[0]["name"]?></h1>
+    <article class="container py-2">
+        <h2 class="my-3"><?=$filtered_tour[0]["name"]?></h2>
         <div class="subtitle-wrap">
             <div class="subtitle-location">
-                <p><strong>Start location:</strong></p>
+                <p><strong>Place of Start & Return:</strong></p>
                 <p><?= $filtered_tour[0]["start_position"] ?></p>
             </div>
             <div class="subtitle-time">
-                 <p><strong>Time locations</strong></p>
+                 <p><strong>Start time</strong></p>
                  <p><?= $filtered_tour[0]["time_start"] ?></p>
             </div>
         </div>
-        <div class="detail-wrap">
-            <div class="detail-gallery"></div>
-            <div class="detail-price"></div>
+
+        <div class="container  ">
+            <div class="row">
+                <div class="col col-md-8">
+                    <div id="gallery">
+                        <button onclick="previous()">◀</button>
+                        <img src="<?= $filtered_tour[0]["image"][0]?>" id="mainImage">
+                        <button onclick="next()" class="next">▶</button>
+                        <hr/>
+                        <?for($x=0; $x<=count($filtered_tour[0]['image']); $x++) {?>
+                            <img 
+                                id="thumb<?=$x+1?>" 
+                                onclick="selectImage(<?= $x +1?>)" 
+                                src="<?= $filtered_tour[0]['image'][$x]?>" 
+                                class="thumb <?= $selectedImage == $x ? "active" : "" ?>">
+                        <?}?> 
+                        <!-- <img id="thumb1" onclick="selectImage(1)" src="images/1.jpg" class="thumb active">
+                        <img id="thumb2" onclick="selectImage(2)" src="images/2.jpg" class="thumb">
+                        <img id="thumb3" onclick="selectImage(3)" src="images/3.jpg" class="thumb">
+                        <img id="thumb4" onclick="selectImage(4)" src="images/4.jpg" class="thumb">
+                        <img id="thumb5" onclick="selectImage(5)" src="images/5.jpg" class="thumb"> -->
+        
+                    </div>
+                </div>
+
+                <div class="col col-md-4 d-flex align-items-center">
+                    <div class="container bg-light rounded shadow px-2 py-3">
+                        <div class="row">
+                            <p class="col"><strong>Price</strong></p>
+                            <p class="col text-muted">starting with <?=$filtered_tour[0]['price']['amount']?> <?= $filtered_tour[0]['price']['currency'] ?></p>
+                        </div>
+                        <div class="row">
+                            <p class="col text-muted">Country</p>
+                            <p class="col"><strong><?=$filtered_tour[0]['country']?></strong></p>
+                        </div>
+                        <div class="row">
+                            <p class="col text-muted">Resort</p>
+                            <p class="col"><strong><?=$filtered_tour[0]['resort']?></strong></p>
+                        </div>
+                        <div class="row">
+                            <p class="col text-muted">Food type</p>
+                            <p class="col"><strong><?=$filtered_tour[0]['food_type']?></strong></p>
+                        </div>
+        
+                        <a class="btn btn-danger d-block fw-bold " href="/?page=book&id=<?= $filtered_tour[0]["id"] ?>">Book an excursion</a>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <a href="/?page=book&id=<?= $filtered_tour[0]["id"] ?>">Book</a>
     </article>
 
     
     
 </section>
+
+
+
+<script>
+
+    let  selectedImage = 1
+
+    function selectImage(n){
+        //change main image
+        mainImage.src=`images/${n}.jpg`
+
+        for (let i = 1; i<=7; i++){
+            if (i == n){
+                //set active class to thumb
+                window[`thumb${i}`].className ='thumb active' 
+            }else{
+                window[`thumb${i}`].className ='thumb' 
+            }
+        }
+
+        
+    }
+
+    function next(){
+        
+        if(selectedImage <= 7){
+            selectedImage++;
+            if(selectedImage > 7){
+                    selectedImage = 1
+                } else{
+                    
+                } 
+            
+        selectImage(selectedImage);     
+            
+        }
+            
+    }
+
+        function previous(){
+            if(selectedImage <=7){
+            selectedImage--;
+            if(selectedImage < 1){
+                selectedImage = 7
+            }else{
+
+            }
+            selectImage(selectedImage); 
+    }
+
+
+    }
+    
+// </script>

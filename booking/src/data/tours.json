@@ -23,7 +23,10 @@
         "price": {
             "amount": 99,
             "currency": "USD"
-        }
+        },
+        "country":"Istambul",
+        "resort": "Belek",
+        "food_type": "Breakfast"
     },
     {
         "id": 2,
@@ -49,7 +52,10 @@
         "price": {
             "amount": 109,
             "currency": "USD"
-        }
+        },
+        "country": "Austria, Hungary",
+        "resort": "Budapesta",
+        "food_type": "Breakfast"
     },
     {
         "id": 3,
@@ -75,7 +81,10 @@
         "price": {
             "amount": 20,
             "currency": "EURO"
-        }
+        },
+        "country": "Romania",
+        "resort": "Iasi hotel",
+        "food_type": "Breakfast & Dinner"
     },
     {
         "id": 4,
@@ -101,7 +110,10 @@
         "price": {
             "amount": 277,
             "currency": "EURO"
-        }
+        },
+        "country":"Austria, Slovakia, Hungary, Germany, Czech Republic",
+        "resort": "Hotel",
+        "food_type": "Breakfast"
     },
     {
         "id": 5,
@@ -127,7 +139,10 @@
         "price": {
             "amount": 500,
             "currency": "EURO"
-        }
+        },
+        "country": "Egypt",
+        "resort": "Hotel",
+        "food_type": "Breakfast & Dinner"
     },
     {
         "id": 6,
@@ -152,6 +167,9 @@
         "price": {
             "amount": 1600,
             "currency": "EURO"
-        }
+        },
+        "country": "Dubai",
+        "resort": "Abu Dabhi",
+        "food_type": ""
     }
 ]
