@@ -86,7 +86,7 @@ button.c-sort{
 #gallery a:first-child{
     transform: translateX(-220px) translateY(160px);
 }
-#gallery .next{
+#gallery a.next{
     transform: translateX(220px) translateY(-160px);
 }
 
@@ -137,7 +137,7 @@ button.c-sort{
         transform: translateX(-330px) translateY(200px);
     }
 
-    #gallery .next {
+    #gallery a.next{
         transform: translateX(330px) translateY(-220px);
     }
 }
