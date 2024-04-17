@@ -1,9 +1,9 @@
 {
     "client": {
-        "full_name": "John Doe",
-        "email": "jd@ecample.com",
-        "phone_number": 4548784
+        "full_name": "",
+        "email": "",
+        "phone_number": 0
     },
-    "quantity": 2,
+    "quantity": 1,
     "tour_id": 1
 }

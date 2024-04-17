@@ -12,7 +12,7 @@
     if (array_key_exists('image', $_GET)) {
         $image = $_GET['image'];
         // print ($image);
-        if ($image >= 7) {
+        if ($image > 7) {
             $image = 1;
         }
         if ($image < 1) {
@@ -64,11 +64,11 @@
                         </a>
                         <hr/>
                         <?for($x=0; $x<=count($filtered_tour[0]['image']); $x++) {?>
-                            <a href="?page=tour-details&tour-id=<?= $filtered_tour[0]['id'] ?>&image=<?=$x+1?>">
+                            <a href="?page=tour-details&tour-id=<?= $filtered_tour[0]['id'] ?>&image=<?=$x?>">
                                 <img 
-                                    id="thumb<?=$x+1?>" 
+                                    id="thumb<?=$x?>" 
                                     src="<?= $filtered_tour[0]['image'][$x]?>" 
-                                    class="thumb <?= $image == ($x+1) ? "active" : "" ?>">
+                                    class="thumb <?= $image == ($x) ? "active" : "" ?>">
 
                             </a>
                             

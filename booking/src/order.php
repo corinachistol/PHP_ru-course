@@ -13,7 +13,7 @@
             "email"     => $client_email,
             "phone_number" => (int)$client_phone_number
         ],
-        "quantity" =>$order_ticket_quantity,
+        "quantity" =>(int)$order_ticket_quantity,
         "tour_id"  => (int)$order_tour_id
 
     ];
