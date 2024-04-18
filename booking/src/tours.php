@@ -80,9 +80,9 @@
                                         size="6" value="<?= $_POST['max_price'] ?? "" ?>">
                                 </div>
                                 <div class="d-flex justify-content-center c-buttons ">
-                                    <button name="sort_desc" class="btn btn-primary mx-2 c-sort">v</button>
+                                    <button name="sort_desc" class="btn btn-primary mx-2 c-sort"><i class="bi bi-chevron-compact-down"></i></button>
                                     <!-- <input type="radio" name="sort_desc" formaction="/?page=tours"class="c-sort">v -->
-                                    <button name="sort_asc" class="btn btn-primary mx-2 c-sort">^</button>
+                                    <button name="sort_asc" class="btn btn-primary mx-2 c-sort"><i class="bi bi-chevron-compact-up"></i></button>
                                     <button type="submit" class="btn btn-outline-primary px-4 mx-2 ">SEARCH</button>
                                 </div>
                             </div>

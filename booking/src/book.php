@@ -19,53 +19,95 @@
         }
     }
   
+    $errors = [];
+    $success = "";
+    $full_name = "";
+    $email = "";
+    $phone_number = "";
 
-    // $nameError = "";
-    // $emailError = "";
-    // $phoneError = "";
+
+    if($_SERVER['REQUEST_METHOD'] == "POST"){
+        print("Submit button clicked");
+
+        if(array_key_exists('full_name', $_POST) && $_POST['full_name'] != "" ){
+            $full_name = $_POST['full_name'];
+    
+            $full_name = trim($full_name);
+            $full_name = htmlspecialchars($full_name);
+    
+            if(!preg_match("/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/", $full_name)){
+                $errors['name'] = "Name should contain only characters and space!";
+            }
+    
+        }else{
+            $errors['name'] = "Full name is required!";
+    
+        }
+
+    
+        if(array_key_exists('phone_number', $_POST) && $_POST['phone_number'] != "" ){
+            $phone_number = $_POST['phone_number'];
+    
+        }else{
+            $errors['phone'] = "Phone number is required!";
+    
+        }
+    
+        if(array_key_exists('email', $_POST) && $_POST['email'] != "" ){
+            $email = $_POST['email'];
+    
+        }else{
+            $errors['email'] = "Email is required!";
+    
+        }
+
+        
+    
+        if ( empty($errors) ){
+            var_dump(($errors));
+            print("Data is saved in file!");
+
+            save($order, "order");
+    
+        }else{
+            print("There are still errors");
+            die();
+        }
+    }
 
 
-    // if(array_key_exists('full_name', $_POST) && $_POST['full_name'] != "" ){
+       
+       
+    
+
+
+    // if (isset($_POST['submit'])){
     //     $full_name = $_POST['full_name'];
-
     //     $full_name = trim($full_name);
     //     $full_name = htmlspecialchars($full_name);
 
-    //     if(!preg_match("/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/", $full_name)){
-    //         $nameError = "Name should contain only characters and space!";
+    //     $phone_number = $_POST['phone_number'] ?? "";
+    //     $phone_number = htmlspecialchars($phone_number);
+
+    //     $email = $_POST['email'] ?? "";
+    //     $email = htmlspecialchars($email);
+
+    //     if(empty($full_name)){
+    //         $nameError = "Full name is required!";
+    //     }else{
+    //         if(empty(trim($phone_number))){
+    //             $phoneError = "Phone number is required!";
+    //         }else{
+    //             if(empty(trim($email))){
+    //                 $emailError = "Email is required!";
+    //             }else{
+    //                 $success = "You have successfully booked your vacation!";
+    //             }
+    //         }
     //     }
-
-    // }else{
-    //     $nameError = "Full name is required!";
-
+        
+     
     // }
-
-    // if(array_key_exists('phone_number', $_POST) && $_POST['phone_number'] != "" ){
-    //     $phone_number = $_POST['phone_number'];
-
-    // }else{
-    //     $phoneError = "Phone number is required!";
-
-    // }
-
-    // if(array_key_exists('email', $_POST) && $_POST['email'] != "" ){
-    //     $email = $_POST['email'];
-
-    // }else{
-    //     $emailError = "Email is required!";
-
-    // }
-    $formSubmitted = false;
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Process the form data here (validation, database operations, etc.)
-
-        // Assuming the form is successfully processed, set a flag indicating success
-        $formSubmitted = true;
-    } else {
-        // Set the flag to false initially (form not yet submitted)
-        $formSubmitted = false;
-    }
     
  
 
@@ -96,12 +138,12 @@
 
             <div class="row mb-3 mx-5 align-items-center">
                 <div class="col-md-6">
-                    <label for="full_name" class="form-label">Full Name</label>
+                    <label for="full_name" class="form-label" >Full Name</label>
                 </div>
                 <div class="col-md-6">
-                    <input name="full_name" class="form-control " type="text" id="full_name" placeholder="Jane Doe"  >
+                    <input name="full_name" class="form-control " type="text" id="full_name" placeholder="Jane Doe" value="<?= $full_name ?>" >
                 </div>
-                <span style="color:red;"><?=$nameError?></span>
+                <span style="color:red;"><?=$errors['name'] ?? ""?></span>
             </div>
            
             <div class="row mb-3 mx-5 align-items-center">
@@ -109,9 +151,9 @@
                     <label for="email" class="form-label">Email</label>
                 </div>
                 <div class="col-md-6">
-                    <input id="email" class="form-control" type="text" name="email" placeholder="email@example.com">
+                    <input id="email" class="form-control" type="text" name="email" placeholder="email@example.com" value="<?= $email ?>">
                 </div>
-                <span style="color:red;"><?= $emailError ?></span>
+                <span style="color:red;"><?= $errors['email'] ?? "" ?></span>
             </div>
 
             <div class="row mb-3 mx-5 align-items-center">
@@ -119,13 +161,13 @@
                     <label for="phone_number" class="form-label">Phone number</label>
                 </div>
                 <div class="col-md-6">
-                    <input id="phone_number" class="form-control" type="text" name="phone_number" placeholder="1234587">
+                    <input id="phone_number" class="form-control" type="text" name="phone_number" placeholder="1234587" value="<?= $phone_number ?>">
                 </div>
-                <span style="color:red;"><?= $phoneError ?></span>
+                <span style="color:red;"><?= $errors['phone'] ?? "" ?></span>
             </div>
             
             <div class="row mb-3 mx-5 align-items-center"> 
-                <input type="submit" name="submit" class="btn btn-danger fw-bold form-control" >
+                <input type="submit" name="submit" class="btn btn-danger fw-bold form-control"  value="Submit">
             </div>
 
         </form>
@@ -143,11 +185,14 @@
         </p>
     </div>
 </section>
-<!-- 
-<script>
-    $("form").submit(function(a){
-        a.preventDefault();
-    });
+
+<!-- <script>
+    let form =document.getElementById('form')
+
+    form.addEventListener('onclick', (e)=>{
+        e.preventDefault()
+    })
+  
 </script> -->
 
 
