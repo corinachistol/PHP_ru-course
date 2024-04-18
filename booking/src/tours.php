@@ -50,18 +50,18 @@
 
 <!-- TEMPLATE -->
 
-<section class="container-fluid shadow ">
+<section class="container-fluid ">
     <h1 class="text-center py-3">Tour Catalog</h1>
 
-    <div class="c-container">
-        <section class="row">
+    <div class="container-fluid c-container">
+        <section class="row col-lg-2 me-2">
             <div class="col">
                 <div class="card c-card">
                     <div class="card-body">
                         <form action="/?page=tours" method="POST">
                             <div class="row">
                                 <div class="col-4 col-lg-12">
-                                    <label>Tour name</label>
+                                    <label class="form-label">Tour name</label>
                                         <input
                                         class="form-control mb-2" 
                                         type="text" 
@@ -70,12 +70,12 @@
                                         value="<?= $_POST['search'] ?? "" ?>">
                                 </div>
                                 <div class="col-4 col-lg-12">
-                                    <label>Minimun price</label>
+                                    <label class="form-label">Minimun price</label>
                                     <input class="form-control mb-2" type="text" placeholder="enter min price" name="min_price"
                                         size="6" value="<?= $_POST['min_price'] ?? "" ?>">
                                 </div>
                                 <div class="col-4 col-lg-12">
-                                    <label>Maximum price</label>
+                                    <label class="form-label">Maximum price</label>
                                     <input class="form-control mb-2" type="text" placeholder="enter max price" name="max_price"
                                         size="6" value="<?= $_POST['max_price'] ?? "" ?>">
                                 </div>
@@ -93,7 +93,7 @@
         </section>
 
 
-        <section classs="row col-md-9">
+        <section classs="row col-md-10">
         
             <div class="col">
                 <div class="row">

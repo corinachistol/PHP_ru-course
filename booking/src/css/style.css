@@ -36,6 +36,7 @@ button.c-sort{
 
 
 .c-card{
+    border:0;
     border-color: transparent;
 }
 
@@ -123,7 +124,7 @@ button.c-sort{
 @media only screen and (min-width: 960px) {
     .c-container {
         display: flex;
-        gap: 1rem;
+  
     }
     .c-buttons:last-child{
        flex-direction: column;
