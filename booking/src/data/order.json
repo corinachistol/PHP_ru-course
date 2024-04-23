@@ -1,9 +1,9 @@
 {
     "client": {
-        "full_name": "",
-        "email": "",
-        "phone_number": 0
+        "full_name": "Jane Doe",
+        "email": "example@gmail.com",
+        "phone_number": 125464
     },
     "quantity": 1,
-    "tour_id": 1
+    "tour_id": 2
 }

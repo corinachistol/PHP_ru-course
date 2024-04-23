@@ -110,7 +110,7 @@ button.c-sort{
 
 .success-message{
     display: block;
-    color: green;
+    /* color: green; */
 }
 
 .hidden-message{

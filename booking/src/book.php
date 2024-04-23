@@ -1,7 +1,5 @@
 <?
-    // require $order;
-    // var_dump($order);
-
+   
     $id = (int)$_GET['id'];
     $tours = load('tours');
     $tours = array_values($tours);
@@ -14,103 +12,21 @@
 
     for($x=0; $x<count($tours); $x++){
         if($tours[$x]['id'] === $id) {
-            $filtered_tour = $tours[$x];
+             global $filtered_tour;
+             $filtered_tour = $tours[$x];
             // $tour_name = $tours[$x]['name'];
+            
         }
     }
   
-    $errors = [];
-    $success = "";
+    //define variables and set to emplty values;
+    // var_dump($errors);
+    
+
     $full_name = "";
     $email = "";
     $phone_number = "";
-
-
-    if($_SERVER['REQUEST_METHOD'] == "POST"){
-        print("Submit button clicked");
-
-        if(array_key_exists('full_name', $_POST) && $_POST['full_name'] != "" ){
-            $full_name = $_POST['full_name'];
     
-            $full_name = trim($full_name);
-            $full_name = htmlspecialchars($full_name);
-    
-            if(!preg_match("/^[a-zA-Z]+(?:\s[a-zA-Z]+)+$/", $full_name)){
-                $errors['name'] = "Name should contain only characters and space!";
-            }
-    
-        }else{
-            $errors['name'] = "Full name is required!";
-    
-        }
-
-    
-        if(array_key_exists('phone_number', $_POST) && $_POST['phone_number'] != "" ){
-            $phone_number = $_POST['phone_number'];
-    
-        }else{
-            $errors['phone'] = "Phone number is required!";
-    
-        }
-    
-        if(array_key_exists('email', $_POST) && $_POST['email'] != "" ){
-            $email = $_POST['email'];
-    
-        }else{
-            $errors['email'] = "Email is required!";
-    
-        }
-
-        
-    
-        if ( empty($errors) ){
-            var_dump(($errors));
-            print("Data is saved in file!");
-
-            save($order, "order");
-    
-        }else{
-            print("There are still errors");
-            die();
-        }
-    }
-
-
-       
-       
-    
-
-
-    // if (isset($_POST['submit'])){
-    //     $full_name = $_POST['full_name'];
-    //     $full_name = trim($full_name);
-    //     $full_name = htmlspecialchars($full_name);
-
-    //     $phone_number = $_POST['phone_number'] ?? "";
-    //     $phone_number = htmlspecialchars($phone_number);
-
-    //     $email = $_POST['email'] ?? "";
-    //     $email = htmlspecialchars($email);
-
-    //     if(empty($full_name)){
-    //         $nameError = "Full name is required!";
-    //     }else{
-    //         if(empty(trim($phone_number))){
-    //             $phoneError = "Phone number is required!";
-    //         }else{
-    //             if(empty(trim($email))){
-    //                 $emailError = "Email is required!";
-    //             }else{
-    //                 $success = "You have successfully booked your vacation!";
-    //             }
-    //         }
-    //     }
-        
-     
-    // }
-    
- 
-
   
 
 ?>
@@ -141,9 +57,9 @@
                     <label for="full_name" class="form-label" >Full Name</label>
                 </div>
                 <div class="col-md-6">
-                    <input name="full_name" class="form-control " type="text" id="full_name" placeholder="Jane Doe" value="<?= $full_name ?>" >
+                    <input name="full_name" class="form-control" type="text" id="full_name" placeholder="Jane Doe" value="<?= $full_name ?>" >
                 </div>
-                <span style="color:red;"><?=$errors['name'] ?? ""?></span>
+                <span class="form-helper" style="color:red;"><?=$errors['name'] ?? ""?></span>
             </div>
            
             <div class="row mb-3 mx-5 align-items-center">
@@ -151,7 +67,7 @@
                     <label for="email" class="form-label">Email</label>
                 </div>
                 <div class="col-md-6">
-                    <input id="email" class="form-control" type="text" name="email" placeholder="email@example.com" value="<?= $email ?>">
+                    <input id="email" class="form-control" type="email" name="email" placeholder="email@example.com" value="<?= $email ?>">
                 </div>
                 <span style="color:red;"><?= $errors['email'] ?? "" ?></span>
             </div>
@@ -161,7 +77,7 @@
                     <label for="phone_number" class="form-label">Phone number</label>
                 </div>
                 <div class="col-md-6">
-                    <input id="phone_number" class="form-control" type="text" name="phone_number" placeholder="1234587" value="<?= $phone_number ?>">
+                    <input id="phone_number" class="form-control" type="tel" name="phone_number" placeholder="1234587" value="<?= $phone_number ?>">
                 </div>
                 <span style="color:red;"><?= $errors['phone'] ?? "" ?></span>
             </div>
@@ -175,7 +91,7 @@
     </div>
 
 
-    <div class="<?= $formSubmitted ? "success-message" : "hidden-message" ?>container">
+     <!-- <div class="container <?= empty($errors) ? "success-message" : "hidden-message"?>">
         <h3>You have successfully booked your vacation to <?= $filtered_tour['name'] ?></h3>
         <p>The total cost: <?= $orders['quantity'] * $filtered_tour['price']['amount'].$filtered_tour['price']['currency'] ?></p>
         <p>
@@ -183,7 +99,10 @@
             <?=$orders['quantity']?> tickets x <?= $filtered_tour['price']['amount'] ?> <?= $filtered_tour['price']['currency'] ?> 
                 
         </p>
-    </div>
+    </div> -->
+
+
+   
 </section>
 
 <!-- <script>
