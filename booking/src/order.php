@@ -62,7 +62,11 @@
 
     }
 ?>
+<!-- 
+// HW2: show a success message to the client
+    //  and print the total cost in this date_format
 
+    // hot sands... : 2 ticketsx 50 EUR =  100EUR -->
 
    <div class="container <?= empty($errors) ? "success-message" : "hidden-message" ?>">
         <h3>You have successfully booked your vacation to <?= $filtered_tour['name'] ?></h3>

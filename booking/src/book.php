@@ -89,45 +89,7 @@
         </form>
 
     </div>
-
-
-     <!-- <div class="container <?= empty($errors) ? "success-message" : "hidden-message"?>">
-        <h3>You have successfully booked your vacation to <?= $filtered_tour['name'] ?></h3>
-        <p>The total cost: <?= $orders['quantity'] * $filtered_tour['price']['amount'].$filtered_tour['price']['currency'] ?></p>
-        <p>
-            <?= $filtered_tour['name'] ?>: 
-            <?=$orders['quantity']?> tickets x <?= $filtered_tour['price']['amount'] ?> <?= $filtered_tour['price']['currency'] ?> 
-                
-        </p>
-    </div> -->
-
-
    
 </section>
 
-<!-- <script>
-    let form =document.getElementById('form')
 
-    form.addEventListener('onclick', (e)=>{
-        e.preventDefault()
-    })
-  
-</script> -->
-
-
-
-    
-
-   
-
-        
-
-    
-
-
-
-<!-- 
-// HW2: show a success message to the client
-    //  and print the total cost in this date_format
-
-    // hot sands... : 2 ticketsx 50 EUR =  100EUR -->

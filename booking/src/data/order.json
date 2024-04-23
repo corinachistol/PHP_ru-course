@@ -1,7 +1,7 @@
 {
     "client": {
-        "full_name": "Jane Doe",
-        "email": "example@gmail.com",
+        "full_name": "John Doe",
+        "email": "jd@ecample.com",
         "phone_number": 125464
     },
     "quantity": 1,
