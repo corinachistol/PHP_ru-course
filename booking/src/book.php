@@ -1,11 +1,12 @@
 <?
-   
+
     $id = (int)$_GET['id'];
+
     $tours = load('tours');
     $tours = array_values($tours);
 
     $orders = load('order');
-    // var_dump($orders);
+
 
     //HW1: find the tour by id and print its nime in h2
     // a) array function b)for + if id=== tourid
@@ -18,17 +19,14 @@
             
         }
     }
-  
+
+   
     //define variables and set to emplty values;
     // var_dump($errors);
-    
-
     $full_name = "";
     $email = "";
     $phone_number = "";
     
-  
-
 ?>
 
 <section class="container">
@@ -89,6 +87,7 @@
         </form>
 
     </div>
+
    
 </section>
 
