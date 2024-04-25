@@ -1,0 +1,43 @@
+body{
+    background-color: #223;
+    color: white;
+    margin: 0;
+}
+
+.map{
+    width: 500px;
+    height: 500px;
+    border: 3px solid #444;
+    margin-left: 2rem;
+}
+
+.hcoords{
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    margin-left: 30px;
+    margin-bottom: -15px;
+    margin-top: 10px;
+} 
+
+.vcoords{
+    width: 500px;
+    display: flex;
+    justify-content: space-around;
+    transform: rotate(90deg) translateX(260px) translateY(250px);
+    margin-left: 10px;
+} 
+.vcoords span{
+    transform: rotate(-90deg);
+}
+
+.map .sq{
+    width: 48px;
+    height: 48px;
+    border: 1px solid #666;
+    float: left;
+}
+
+.map .ship{
+    background-color: #651;
+}
